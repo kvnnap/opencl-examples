@@ -6,6 +6,8 @@ set(CMAKE_BUILD_TYPE Release)
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 
 # OpenCL headers cloned from https://github.com/KhronosGroup/OpenCL-Headers
+# C++ bindings available from https://github.com/KhronosGroup/OpenCL-CLHPP/releases.
+# Copy cl2.hpp or cl.hpp into the CL directory obtained from the clone of the OpenCL-Headers
 # Set OpenCL cache variables for OpenCL to find package
 set(OpenCL_INCLUDE_DIR "../OpenCL-Headers")
 

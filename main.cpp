@@ -67,10 +67,26 @@ void printDeviceInfo(const vector<cl_device_id >& deviceIds) {
             cout << "Device Max Compute Units: " << number << endl;
         }
 
+        size_t sizeNum;
+        status = clGetDeviceInfo(id, CL_DEVICE_MAX_WORK_GROUP_SIZE, sizeof(sizeNum), &sizeNum, &buffSizeWritten);
+        if (status == CL_SUCCESS) {
+            cout << "Device Max Work Group Size: " << sizeNum << endl;
+        }
+
+        status = clGetDeviceInfo(id, CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS, sizeof(number), &number, &buffSizeWritten);
+        if (status == CL_SUCCESS) {
+            cout << "Device Max Work Item Dimensions: " << number << endl;
+        }
+
+        status = clGetDeviceInfo(id, CL_DEVICE_MAX_CLOCK_FREQUENCY, sizeof(number), &number, &buffSizeWritten);
+        if (status == CL_SUCCESS) {
+            cout << "Device Max Clock Frequency: " << number << " MHz" << endl;
+        }
+
         cl_ulong memSize;
         status = clGetDeviceInfo(id, CL_DEVICE_GLOBAL_MEM_SIZE, sizeof(memSize), &memSize, &buffSizeWritten);
         if (status == CL_SUCCESS) {
-            cout << "Global Memory Size: " << memSize / (1024*1024) << endl;
+            cout << "Global Memory Size: " << memSize / (1024*1024) << " MB" << endl;
         }
     }
 
